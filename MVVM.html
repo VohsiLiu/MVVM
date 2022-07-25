@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVVM</title>
+</head>
+<body>
+    <div id = "app">
+        <input type = "text" v-model = "message">
+        <div>{{message}}</div>
+        {{message}}
+    </div>
+    点击按钮改变字段的值：在字段后添加“hello”<button id="btn1" onclick="changeMVVM()"></button><br>
+</body>
+</html>
+
+<script src = "out/watcher.js"></script>
+<script src = "out/observer.js"></script>
+<script src = "out/compile.js"></script>
+<script src = "out/MVVM.js"></script>
+<script>
+    let vm = new MVVM({
+        el: '#app',
+        data: {
+            message: 'hello world!'
+        }
+    });
+    function changeMVVM () {
+        vm.$data.message += "hello";
+    }
+</script>
